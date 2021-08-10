@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Post from "./components/post";
+import Headline from "./components/headline";
 
 let Home = () => {
     var postData;
@@ -65,28 +65,7 @@ let Home = () => {
 }]
     return (
         <div className="home container-fluid d-flex">
-            <div className="headline d-flex mt-6" >
-                <div className="headline-body d-flex col-md-4 my-2 mx-2" >
-                    {
-                        headline && headline.map(
-                            (data,index) => {
-                                return (
-                                    <Link to={`post/${data.id}`}>
-                                        <div className="headline-items my-2 mx-2" >
-                                        <div className="headline-img">
-                                            <img src={`./logo.svg`} className="img-hl" alt="hl-img" />
-                                        </div>
-                                        <div className="headline-title">
-                                            {data.title}
-                                        </div>
-                                    </div>
-                                    </Link>
-                                )
-                            }
-                        )
-                    }
-                </div>
-            </div>
+            <Headline headline={headline} />
             < hr className="seperator" />
             <Post postData={postData} />
         </div>
