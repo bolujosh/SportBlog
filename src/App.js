@@ -1,14 +1,15 @@
 import React from "react";
-import Home from "./pages/home.js";
-import Login from "./pages/login.js";
-import { Switch, Route,Link,useLocation } from "react-router-dom";
+import Home from "./pages/home";
+import Login from "./pages/login";
+import NewPost from "./pages/new-post";
+import { Switch, Route,Link } from "react-router-dom";
 import "./App.css";
-import "./bootstrap-5.0.2-dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 let App = () => {
 
   let site_name = "9jaTweet";
-  let loc = useLocation();
 
   return (
     <div className="App">
@@ -18,13 +19,15 @@ let App = () => {
         </div>
         <div className="right">
           <div className="inner-box">
-          <Link to="/" name="home">Home</Link>
+          <Link to="/" name="home"><i className="fa fa-home"></i></Link>
           </div>
         </div>
       </div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/admin" component={Login}/>
+        <Route exact path="/admin" component={Login} />
+        <Route exact path="/post/new" component={NewPost} />
+        <div className="d-flex not-found">404 NOT FOUND</div>
       </Switch>
    </div>
   )

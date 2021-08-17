@@ -1,71 +1,24 @@
-import React from "react";
-import Post from "./components/post";
-import Headline from "./components/headline";
+import React, { useEffect } from "react";
+import Post from "../components/post";
+import Headline from "../components/headline";
+import $ from 'jquery';
 
 let Home = () => {
     var postData;
-    postData = [{
-        id:"1",
-        category:"default",
-        title: "hello world",
-        img:"./logo.svg"
-    }, {
-        id:"2",
-        category:"default",
-        title: "Hello world",
-        img:"./logo.svg"
-        }, {
-            id:"3",
-            category:"default",
-        title: "Hello World",
-        img:"./logo.svg"
-        }, {
-            id:"4",
-            category:"default",
-        title: "hello world",
-            img:"./logo.svg"
-        }, {
-            id:"5",
-            category:"default",
-        title: "hello world",
-            img:"./logo.svg"
-        }, {
-            id:"6",
-            category:"default",
-        title: "hello world",
-            img:"./logo.svg"
-        }, {
-            id:"7",
-            category:"default",
-        title: "hello world",
-            img:"./logo.svg"
-        }, {
-            id:"8",
-            category:"default",
-        title: "hello world",
-            img:"./logo.svg"
-        }];
-    
-    var headline = [{
-        id:"8",
-        title: "hello world",
-            img:"./logo.svg"
-    }, {
-        id:"1",
-    title: "hello world",
-        img:"./logo.svg"
-        }, {
-            id:"1",
-        title: "hello world",
-            img:"./logo.svg"
-        }, {
-            id:"1",
-        title: "hello world",
-            img:"./logo.svg"
-}]
+    useEffect(() => {
+        $.ajax({
+            url: 'static/php/post/',
+            type: 'GET',
+            success: (data) => {
+                postData = JSON.parse(data);
+                console.log(postData)
+            }
+        })
+    })
+    var headline;
     return (
         <div className="home container-fluid d-flex">
-            <Headline headline={headline} />
+            <Headline headline={postData} />
             < hr className="seperator" />
             <Post postData={postData} />
         </div>
