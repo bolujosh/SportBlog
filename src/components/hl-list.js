@@ -7,7 +7,7 @@ let HlList = ({data}) => {
         <Link to={`post/${data.id}`}>
                                 <div className="headline-items my-2 mx-2" >
                                 <div className="headline-img">
-                                    <img src={`./logo.svg`} className="img-hl" alt="hl-img" />
+                                    <img src={`/static/${data.post_img_path}`} className="img-hl" alt="hl-img" />
                                 </div>
                                 <div className="headline-title">
                                     {data.title}

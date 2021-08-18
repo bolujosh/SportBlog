@@ -1,26 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Post from "../components/post";
 import Headline from "../components/headline";
 import $ from 'jquery';
 
 let Home = () => {
-    var postData;
+    let [state, setState] = useState();
     useEffect(() => {
         $.ajax({
-            url: 'static/php/post/',
+            url: '/static/php/post',
             type: 'GET',
             success: (data) => {
-                postData = JSON.parse(data);
-                console.log(postData)
+                setState(JSON.parse(data));
+            },
+            error: (error) => {
+                console.log(error)
             }
-        })
+        }, [])
     })
-    var headline;
+
     return (
         <div className="home container-fluid d-flex">
-            <Headline headline={postData} />
+            <Headline headline={state} />
             < hr className="seperator" />
-            <Post postData={postData} />
+            <Post postData={state} />
         </div>
     )
 }

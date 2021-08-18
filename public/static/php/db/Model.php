@@ -7,15 +7,15 @@ class Model{
 
     function __construct(){
         try{
-            $this->conn=new mysqli("localhost","root","root");
-        }catch(Exception $e){
+            $this->conn=new PDO("mysql:host=$this->host;dbname=$this->db;charset=UTF8","root","root");
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
         return $this->conn;
     }
 
     public function conn(){
-        $this->conn->select_db("9jatweet");
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         return $this->conn;
     }
 
