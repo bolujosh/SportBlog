@@ -22,19 +22,22 @@ let Login = () => {
     }
 
     return (
-        <div className="form d-flex container my-2 mx-2">
-            <div className="form-box d-block col-md-2">
-                <form className="form-main" onSubmit={onSubmit} method="post">
-                    <div className="form-group my-1" >
-                    <input type="text" name="user_name" className="form-control my-6 mx-6" placeholder="Username" />
+        <div className="form col-lg-6 col-md-6 col-sm-6 my-3 mx-3">
+            <div className="form-body d-flex">
+                <div>Login</div>
+                <form onSubmit={onSubmit}>
+                    <div className="col-md-12 col-sm-12 my-2 mx-2" >
+                    <label htmlFor="user_name" className="form-label col-form-label-sm col-form-label-md">Username</label>
+                    <input type="text" name="user_name" className="form-control form-control-sm form-control-md" />
                     <div className="err-u"></div>
                     </div>
-                    <div className="form-group my-1" >
-                    <input type="password" name="user_pwd" className="form-control my-6 mx-6" placeholder="Password" />
+                    <div className="col-md-12 col-sm-12 my-2 mx-2" >
+                    <label htmlFor="user_pwd" className="form-label col-form-label-sm col-form-label-md">Password</label>
+                    <input type="password" name="user_pwd" className="form-control form-control-sm form-control-md" />
                     <div className="err-p"></div>
                     </div>
-                    <div className="form-group" >
-                    <input type="submit" className="btn btn-primary" />
+                    <div className="col-md-12 col-sm-12 my-2 mx-2" >
+                    <input type="submit" className="btn btn-outline-dark" />
                     </div>
                 </form>
             </div>
