@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 let App = () => {
 
-  let site_name = "9jaTweet";
+  let site_name = "Phreaky Works";
 
   return (
     <div className="App">
